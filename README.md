@@ -1,12 +1,20 @@
-# Cisco ISE Basic API Calls Scripts
+# TEMPLATE PUSHER
 
-This project is a collection of Scripts that leverage ISE APIs (ISE 2.4 and above) for basic tasks. This will save a lot of repetitive clicks
+This project was create with an intent of pushing templates to several network devices at once and save time for setting up new configuration.
+This will save a lot of repetitive remote access connections to copy and paste the same config. Ita can also be used on a recurring basis to keep configuration consistency.
 
 ## Getting Started
 
-This folder contains sub-folders named according to specific ISE configurations. Inside each folder there is a script that allow operations like List, Create, Delete and Update. Some folders will have a template csv file that will be used as the source of informartion.
+This folder is structured as following:
 
-Use -h option on each script to be presented with help.
+backup - Will host all configuration backup taken before committing any changes to any device.
+
+config - 
+
+templates - 
+
+TEMPLATE
+
 
 ### Prerequisites
 
@@ -45,10 +53,11 @@ ise_username = "iseUsername"
 ise_password = "isePassword"
 ```
 
-## Running the tests
+## Running Template Pusher
 
-Explain how to run the automated tests for this system
+Use -h option on each script to be presented with help.
 
+Template option is a requid
 ```
 Give an example
 ```
