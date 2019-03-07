@@ -41,7 +41,7 @@ def push_config (configuration,net_device,username,password):
     print('Backing UP Config ...')
     backup = device.get_config(retrieve=u'running')
     file_date = datetime.now().strftime("%Y-%m-%d_%H-%M")
-    f = open("../backup/"+str(net_device)+"-backup-"+file_date+".cfg", "w")
+    f = open("backup/"+str(net_device)+"-backup-"+file_date+".cfg", "w")
     f.write(str(backup['running']))
     f.close
     # Push config to candidate config

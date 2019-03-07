@@ -1,7 +1,7 @@
 # TEMPLATE PUSHER
 
 This project was create with an intent of pushing templates to several network devices at once and save time for setting up new configuration.
-This will save a lot of repetitive remote access connections to copy and paste the same config. Ita can also be used on a recurring basis to keep configuration consistency.
+This will save remote access connections and time to copy and paste the same config over and over. It can also be used on a recurring basis to keep configuration consistency.
 
 ## Getting Started
 
@@ -9,11 +9,10 @@ This folder is structured as following:
 
 backup - Will host all configuration backup taken before committing any changes to any device.
 
-config - 
+config - Where configuration and inventory files are
 
-templates - 
+templates - Where configuration templates are stored
 
-TEMPLATE
 
 
 ### Prerequisites
@@ -39,27 +38,45 @@ TEMPLATE
 
 Clone git repository
 ```bash
-   git clone https://github.com/diegogsoares/ISE-API-SCRIPTS.git
-   cd ISE-API-SCRIPTS
+   git clone https://github.com/diegogsoares/TEMPLATE-PUSHER.git
+   cd TEMPLATE-PUSHER
+   python3 -m pip install -r requirements.txt 
+   
 ```
 
 ## Deployment
 
-Edit the config file inside config folder with proper ISE IP/Hostname and Credentials.
+Edit the config file inside config folder with proper Credentials, Remote Access port numbers and inventory file.
 
+NOTE: all file references should consider the base folder being TEMPLATE-PUSHER. (Ex: config file is config/config.py)
 ```
-ise_host = "10.10.10.10"
-ise_username = "iseUsername"
-ise_password = "isePassword"
+device_inventory = "config/inventory.yml"
+net_username = "admin"
+net_password = "Cisco"
+ssh_port = "22"
 ```
 
 ## Running Template Pusher
 
 Use -h option on each script to be presented with help.
 
-Template option is a requid
+Template option is a required option
 ```
-Give an example
+python3 template-pusher.py -t templates/basic-system-settings.cfg
+```
+You can select a different Inventory file.
+```
+python3 template-pusher.py -t templates/basic-system-settings.cfg -i config/new-inventory.yml
+```
+You can select a different Username and Password.
+```
+python3 template-pusher.py -t templates/basic-system-settings.cfg -u NEW_USER -p NEW_PASSWORD
+```
+You can select a specific device.
+
+NOTE: If you don't use the -u and -p option the default credentials from the config file will be used.
+```
+python3 template-pusher.py -t templates/basic-system-settings.cfg -d 10.1.1.1
 ```
 
 ## Built With
